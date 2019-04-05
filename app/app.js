@@ -23,7 +23,7 @@ $(document).ready(function () {
 		var keyExists = localStorage.getItem(key) !== null;
 
 		if (keyExists) {
-			updateStatusLabel('key already exists, please use update button instead! :D');
+			updateStatusLabel('Tea already in database, please use update button instead! :D');
 		} else if (key === '') {
 			updateStatusLabel('invalid input!')
 		}else {
@@ -41,14 +41,14 @@ $(document).ready(function () {
 		var keyExists = existingValue !== null;
 
 		if (value === existingValue) {
-			updateStatusLabel('key not updated - that value already exists silly! xD')
+			updateStatusLabel('key not updated - tea already in database silly! xD')
 		} else if (keyExists) {
 			updateEntry(key, value);
-			updateStatusLabel('key updated - ' + key);
+			updateStatusLabel('Tea submission updated - ' + key);
 		} else if (key === '') {
 			updateStatusLabel('invalid input!')
 		} else {
-			updateStatusLabel('key doesn\'t exist, please use create button instead! :D');
+			updateStatusLabel('This type of tea has yet to be submitted, please use create button instead! :D');
 		}		
 		
 		loadLocalStorage();		
@@ -61,11 +61,11 @@ $(document).ready(function () {
 
 		if (keyExists) {
 			removeEntry(key);
-			updateStatusLabel('key removed - ' + key);
+			updateStatusLabel('Tea entry removed - ' + key);
 		} else if (key === '') {
 			updateStatusLabel('invalid input!')
 		} else {
-			updateStatusLabel('key doesn\'t exist, nothing removed. :|');
+			updateStatusLabel('No entry of this type, nothing removed. :|');
 		}
 
 		loadLocalStorage();

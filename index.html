@@ -2,37 +2,94 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>HREXT08 R00lz!</title>
+	<title>#teatime Channel Glossary</title>
 	<script
 		src="https://code.jquery.com/jquery-3.3.1.js"
 		integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
 		crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js"></script>
+    <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.21/c3.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.21/c3.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
-<body>
+<body class="bg">
+<div id="big-box">
+	<h1 class="headers" id="0th">Glossary of tea varieties mentioned in #teatime Slack Channel</h1>
+<!-- ***********   Top of Page Horiz. menu (already mentioned teas from #teaTime channel)    ************-->
+
+<!-- ****************************************************************************************************-->
+
+	<div class="mentioned">
+		<tr>
+		  <td><a href="https://en.wikipedia.org/wiki/Longjing_tea"> Dragon Well </a></td>
+		  <td><a href="https://en.wikipedia.org/wiki/Dong_Ding_tea"> Dong Ding Oolong </a></td>
+		  <td><a href="https://www.mountaintea.com/products/four-seasons-of-spring"> Four Seasons of Spring Oolong </a></td>
+		  <td><a href="https://en.wikipedia.org/wiki/High-mountain_tea"> High Mountain Oolong </a></td>
+		  <td><a href="https://en.wikipedia.org/wiki/H%C5%8Djicha"> Hojicha </a></td>
+		  <td><a href="https://www.thespruceeats.com/what-is-oolong-tea-765144"> Roasted Oolong </a></td>
+		  <td><a href="https://en.wikipedia.org/wiki/Kukicha"> Kukicha </a></td>
+		  <td><a href="https://en.wikipedia.org/wiki/Osmanthus#Uses"> Osmanthus Oolong </a></td>
+		  <td><a href="https://en.wikipedia.org/wiki/Tieguanyin"> Tie Guan Yin </a></td>
+		</ul>
+	</div>
+
+
+
+<!-- 
+Center Div to Hold C3 bar graph Comparing Teas
+X AXIS************************
+# of mentions
+% of total mentions
+avg # of responses
+Y AXIS ***********************
+Tea Name
+-->
+<div class="dotChart">
+  <div id="chart"></div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<!-- ****************************          HERE BEGINS CRUD INTERFACE            ************************-->
+
+<!-- ****************************************************************************************************-->
+	<div class="container-container">
+
 	<div class="container">
+		<p id="container-header"><strong> We'd love to hear about some of your favorite tea!  <em>Add tea to listing queue here!</em> </strong> </p>
+		
 		<form action="" method="" class="form">
-			<div class="form">
-				<label for="key">Enter key: </label>
-				<input type="text" name="key" id="key" required>
+			<div class="text-fields">
+				<span class="form">
+					<label for="key" id="name">Tea Name: </label>
+					<input type="text" name="key" id="key" required>
+				</span>
+				<span class="form" id="comments">
+					<label for="value">Keywords: </label>
+					<input type="text" name="value" id="value" required>
+				</span>
 			</div>
-			<div class="form">
-				<label for="value">Enter value: </label>
-				<input type="text" name="value" id="value" required>
-			</div>
-			<div class="form">
+			<div class="form" id="button-container">
 				<button class="button" id="btn-create" type="button">Create</button>
 				<button class="button" id="btn-update" type="button">Update</button>
 				<button class="button" id="btn-delete" type="button">Delete</button>
 			</div>
 			<!-- clear button? -->
 		</form>	
+		<div id="statusLabel">Status:</div>
 		<table>
 			<thead>
 				<tr>
-					<th>Key</th>
-					<th>Value</th>
+					<th>Tea Name & Keywords</th>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -43,17 +100,11 @@
 			</tbody>
 		</table>
 	</div>
-	<div id="statusLabel">Status:</div>
+	</div>
 
+  	<script src="css/chart.js"></script>
 	<script src="app/app.js"></script>
-  <!--
-   table to view data
 
-   form for input for the crud operations
-
-   corgi gif
-   cowbell sound
-  -->
-
+</div>
 </body>
 </html>
